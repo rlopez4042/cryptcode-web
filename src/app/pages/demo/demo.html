@@ -1,0 +1,91 @@
+<div class="demo-page">
+<h2 class="demo-title">
+  <span class="demo-title-cryptcode">CryptCode</span>
+  <span class="demo-title-demo">Demo</span>
+</h2>
+
+  <div class="demo-layout">
+  <aside class="demo-sidebar">
+    <div class="example-tabs" aria-label="Demo examples">
+      @for (example of examples; track example.id) {
+        <button
+          type="button"
+          class="example-tab"
+          [class.active]="selectedExampleId === example.id"
+          (click)="setSelectedExample(example.id)"
+        >
+          {{ example.label }}
+        </button>
+      }
+    </div>
+
+    <div class="sidebar-divider"></div>
+
+    <div class="algorithm-tabs" aria-label="Encryption methods">
+      <p>Encryption</p>
+
+      @for (method of encryptionMethods; track method.id) {
+        <button
+          type="button"
+          class="algorithm-tab"
+          [class.active]="selectedEncryption === method.id && selectedView === 'crypt'"
+          (click)="setSelectedEncryption(method.id)"
+        >
+          {{ method.label }}
+        </button>
+      }
+    </div>
+  </aside>
+
+  <section class="demo-panel">
+    <div class="demo-panel-header">
+      <h3>{{ selectedExample.title }}</h3>
+
+      <div class="file-tabs" aria-label="Demo file views">
+        <button
+          type="button"
+          [class.active]="selectedView === 'ccode'"
+          (click)="setSelectedView('ccode')"
+        >
+          .ccode
+        </button>
+
+        <button
+          type="button"
+          [class.active]="selectedView === 'crypt'"
+          (click)="setSelectedView('crypt')"
+        >
+          .crypt
+        </button>
+
+        <button
+          type="button"
+          [class.active]="selectedView === 'output'"
+          (click)="setSelectedView('output')"
+        >
+          output
+        </button>
+      </div>
+    </div>
+
+    <pre><code>{{ displayedCode }}</code></pre>
+  </section>
+
+  <aside class="demo-details">
+    <div class="detail-card">
+      <h4>What this file shows</h4>
+      <p>{{ selectedExample.fileExplanation }}</p>
+    </div>
+
+    <div class="detail-card">
+      <h4>How encryption is used</h4>
+      <p>{{ selectedExample.encryptionExplanation }}</p>
+    </div>
+
+    <div class="detail-card">
+      <h4>What the output means</h4>
+      <p>{{ selectedExample.outputExplanation }}</p>
+    </div>
+  </aside>
+</div>
+</div>

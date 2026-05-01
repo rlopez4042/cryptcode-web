@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
+import { Demo } from './pages/demo/demo';
 
 type Page = 'about' | 'demo' | 'try';
 type SlideDirection = 'slide-left' | 'slide-right';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [Demo],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

@@ -159,20 +159,11 @@
   </section>
 }
 
-  @if (activePage === 'demo') {
-    <section class="section" [class]="slideDirection">
-      <div class="section-content">
-        <p class="eyebrow">Guided demo</p>
-
-        <h2>See how CryptCode works</h2>
-
-        <p>
-          A plain CryptCode file is encrypted line by line. The key tells the interpreter
-          which encryption method was used for each line.
-        </p>
-      </div>
-    </section>
-  }
+@if (activePage === 'demo') {
+  <section class="section" [class]="slideDirection">
+    <app-demo />
+  </section>
+}
 
   @if (activePage === 'try') {
     <section class="section" [class]="slideDirection">
