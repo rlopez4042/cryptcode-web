@@ -38,7 +38,7 @@
       [class.active]="activePage === 'try'"
       (click)="setActivePage('try')"
     >
-      Try It Yourself
+      Test Drive
     </button>
   </nav>
 </header>
@@ -52,52 +52,108 @@
         <span class="hero-title-code">Code</span>
       </h1>
 
-      <p class="eyebrow">Encrypted custom programming language</p>
-
-      <p class="hero-text">
-        CryptCode is a custom programming language where the readable source code is transformed
-        into an encrypted .crypt file. The key tells the interpreter how to decrypt each line,
-        rebuild the program logic, and display the output.
-      </p>
+      <p class="hero-text">A simple programming language that mixes programming basics with encryption.</p>
     </div>
 
     <div class="about-content">
       <section class="about-info-block">
         <h2>What is CryptCode?</h2>
         <p>
-          CryptCode is a small interpreted language built around the idea that source code
-          can be stored encrypted instead of being saved as plain readable text.
+          CryptCode is an interpreted programming language where source files are not
+          stored as plain readable code. You write a <code>.ccode</code> file, encrypt
+          it into a <code>.crypt</code> file, then run the encrypted version through the
+          CryptCode interpreter using the matching key.
         </p>
       </section>
 
       <section class="about-info-block">
-        <h2>How do you use it?</h2>
-        <p>
-          You write a plain .ccode file using CryptCode keywords, generate an encrypted
-          .crypt file, then run the encrypted file with a key.
-        </p>
-      </section>
+  <h2>Encryption methods</h2>
+
+  <p>
+    CryptCode currently supports three encryption methods. Each method can be assigned
+    to a different non-empty line, and the key tells the interpreter which decryptor to
+    use when the encrypted file runs.
+  </p>
+
+  <ul class="feature-list">
+    <li>
+      <strong>Caesar</strong>
+      <span>Shifts letters using the public and private key files.</span>
+    </li>
+
+    <li>
+      <strong>Reverse</strong>
+      <span>Flips the line content so it has to be reversed again before running.</span>
+    </li>
+
+    <li>
+      <strong>AddX</strong>
+      <span>Applies a simple character transformation to hide the original line.</span>
+    </li>
+  </ul>
+</section>
 
       <section class="about-info-block">
         <h2>Core syntax</h2>
-        <ul>
+        <p>
+          The language is intentionally small, so the commands are easy to read and reason
+          about. Blocks are closed with <code>end</code>, and conditional branches can use
+          <code>else</code>. Expressions also need spaces between values and operators, so
+          <code>total + i</code> works, but <code>total+i</code> does not.
+        </p>
+
+        <ul class="syntax-grid">
           <li><code>print &lt;message or variable&gt;</code></li>
+          <li><code>set &lt;variable&gt; to &lt;number or expression&gt;</code></li>
           <li><code>count &lt;var&gt; from &lt;start&gt; to &lt;end&gt;</code></li>
+          <li><code>repeat &lt;number&gt;</code></li>
+          <li><code>when &lt;var&gt; is &lt;number&gt;</code></li>
+          <li><code>when &lt;var&gt; is not &lt;number&gt;</code></li>
+          <li><code>when &lt;var&gt; greater &lt;number&gt;</code></li>
+          <li><code>when &lt;var&gt; less &lt;number&gt;</code></li>
           <li><code>when &lt;var&gt; mod &lt;number&gt; is &lt;number&gt;</code></li>
           <li><code>else</code></li>
           <li><code>end</code></li>
+          <li><code>fizzbuzz &lt;start&gt; to &lt;end&gt;</code></li>
         </ul>
+
+        <p class="syntax-note">
+          Supported operators include <code>+</code>, <code>-</code>, <code>*</code>,
+          <code>/</code>, and <code>mod</code>.
+        </p>
       </section>
 
       <section class="about-info-block">
         <h2>The basic flow</h2>
-        <ol>
-          <li>Create a readable <code>.ccode</code> file.</li>
-          <li>Encrypt each line using the selected encryption methods.</li>
-          <li>Save the result as a <code>.crypt</code> file.</li>
-          <li>Run the encrypted file using the key.</li>
-          <li>Decrypt the lines, rebuild the logic, and display the output.</li>
-        </ol>
+
+          <p>
+            A CryptCode program starts as a readable <code>.ccode</code> file written with
+            simple commands like <code>print</code>, <code>set</code>, <code>count</code>,
+            and <code>when</code>. From there, the file is encrypted into a <code>.crypt</code>
+            file that can be decrypted and run by the interpreter.
+          </p>
+
+        <ul class="feature-list">
+          <li>
+            <strong>Write</strong>
+            <span>Create a plain <code>.ccode</code> file using CryptCode commands.</span>
+          </li>
+
+          <li>
+            <strong>Encrypt</strong>
+            <span>Convert the readable file into a <code>.crypt</code> file.</span>
+          </li>
+
+          <li>
+            <strong>Key</strong>
+            <span>Add a <code>Key:</code> line that matches the encryption method used on each non-empty line.</span>
+          </li>
+
+          <li>
+            <strong>Run</strong>
+            <span>Execute the encrypted file so CryptCode can decrypt the lines and interpret the program.</span>
+          </li>
+        </ul>
       </section>
     </div>
   </section>
@@ -123,7 +179,7 @@
       <div class="section-content">
         <p class="eyebrow">Interactive playground</p>
 
-        <h2>Try it yourself</h2>
+        <h2>Test Drive</h2>
 
         <p>
           This section will eventually let users edit CryptCode, encrypt it, decrypt it,
