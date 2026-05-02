@@ -22,6 +22,7 @@ type DemoExample = {
   templateUrl: './demo.html',
   styleUrl: './demo.scss'
 })
+
 export class Demo {
   selectedExampleId: DemoExampleId = 'fizzbuzz';
   selectedView: DemoView = 'ccode';

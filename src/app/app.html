@@ -165,20 +165,11 @@
   </section>
 }
 
-  @if (activePage === 'try') {
-    <section class="section" [class]="slideDirection">
-      <div class="section-content">
-        <p class="eyebrow">Interactive playground</p>
-
-        <h2>Test Drive</h2>
-
-        <p>
-          This section will eventually let users edit CryptCode, encrypt it, decrypt it,
-          and run the output directly in the browser.
-        </p>
-      </div>
-    </section>
-  }
+@if (activePage === 'try') {
+  <section class="section" [class]="slideDirection">
+    <app-test-drive></app-test-drive>
+  </section>
+}
 </main>
 
 <footer class="site-footer">

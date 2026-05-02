@@ -1,0 +1,83 @@
+<div class="test-drive-page">
+  <div class="test-drive-heading">
+    <p class="test-drive-eyebrow">Interactive runner</p>
+
+    <h1 class="test-drive-title">
+      <span>CryptCode</span>
+      <span class="title-light">Test Drive</span>
+    </h1>
+
+    <p class="test-drive-intro">
+      Write readable CryptCode, encrypt it into a .crypt file, then run it through the browser version of the interpreter.
+    </p>
+  </div>
+
+  <div class="test-drive-shell">
+    <section class="test-panel editor-panel">
+  <div class="panel-header">
+    <div>
+      <p class="panel-label">Source</p>
+      <h2>.ccode editor</h2>
+    </div>
+
+    <button type="button" class="small-button" (click)="resetExample()">
+      Reset
+    </button>
+  </div>
+
+  <textarea
+    class="code-editor"
+    spellcheck="false"
+    [(ngModel)]="sourceCode"
+  ></textarea>
+
+  <div class="encryption-picker">
+    <p class="picker-label">Encryption method</p>
+
+    <div class="encryption-buttons">
+      @for (mode of encryptionModes; track mode.id) {
+        <button
+          type="button"
+          class="encryption-button"
+          [class.active]="selectedEncryptionMode === mode.id"
+          (click)="selectEncryptionMode(mode.id)"
+        >
+          <span>{{ mode.label }}</span>
+          <small>{{ mode.description }}</small>
+        </button>
+      }
+    </div>
+  </div>
+</section>
+
+    <section class="test-panel crypt-panel">
+      <div class="panel-header">
+        <div>
+          <p class="panel-label">Encrypted</p>
+          <h2>.crypt output</h2>
+        </div>
+
+        <button type="button" class="small-button primary" (click)="encryptSource()">
+  Encrypt
+</button>
+      </div>
+
+      <pre class="code-output"><code>{{ encryptedCode }}</code></pre>
+    </section>
+
+    <section class="test-panel output-panel">
+      <div class="panel-header">
+        <div>
+          <p class="panel-label">Interpreter</p>
+          <h2>Run output</h2>
+        </div>
+
+        <button type="button" class="small-button primary" (click)="runEncrypted()">
+  Run .crypt
+</button>
+      </div>
+
+      <pre class="code-output"><code>{{ runOutput }}</code></pre>
+    </section>
+  </div>
+</div>

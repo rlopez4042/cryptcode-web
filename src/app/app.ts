@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
 import { Demo } from './pages/demo/demo';
+import { TestDrive } from './pages/test-drive/test-drive';
 
 type Page = 'about' | 'demo' | 'try';
 type SlideDirection = 'slide-left' | 'slide-right';
 
 @Component({
   selector: 'app-root',
-  imports: [Demo],
+  imports: [Demo, TestDrive],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
+
 export class App {
   activePage: Page = 'about';
   slideDirection: SlideDirection = 'slide-left';
