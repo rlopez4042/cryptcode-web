@@ -1,7 +1,9 @@
+$demo-radius: 10px;
+
 .demo-page {
   max-width: 1220px;
   margin: 0 auto;
-  padding: 28px 0 72px;
+  padding: 28px 0 24px;
 }
 
 .demo-title {
@@ -17,10 +19,13 @@
 }
 
 .demo-title-cryptcode {
-  color: #8eeaff;
+  color: var(--theme-main);
   text-shadow:
-    0 0 8px rgba(56, 189, 248, 0.78),
-    0 0 24px rgba(56, 189, 248, 0.34);
+    0 0 8px rgba(var(--theme-rgb), 0.78),
+    0 0 24px rgba(var(--theme-rgb), 0.34);
+  transition:
+    color 450ms ease,
+    text-shadow 450ms ease;
 }
 
 .demo-title-demo {
@@ -46,27 +51,37 @@
 .example-tabs,
 .algorithm-tabs {
   display: grid;
-  gap: 14px;
+  gap: 10px;
+}
+
+.example-tabs p,
+.algorithm-tabs p {
+  margin: 0 0 2px;
+  color: #94a3b8;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .example-tab,
 .algorithm-tab,
 .file-tabs button {
-  border: 1px solid rgba(142, 234, 255, 0.18);
+  border: 1px solid var(--theme-border);
+  border-radius: $demo-radius;
   font: inherit;
   cursor: pointer;
   transition:
-    border-color 180ms ease,
-    background 180ms ease,
-    color 180ms ease,
-    box-shadow 180ms ease;
+    border-color 450ms ease,
+    background 450ms ease,
+    color 450ms ease,
+    box-shadow 450ms ease;
 }
 
 .example-tab {
-  padding: 16px 18px;
-  border-radius: 14px;
-  background: rgba(2, 6, 23, 0.42);
-  color: #9eeaff;
+  min-height: 42px;
+  padding: 10px 18px;
+  background: var(--theme-panel-bg-soft);
+  color: var(--theme-main-soft);
   text-align: left;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -76,50 +91,37 @@
   height: 1px;
   background: linear-gradient(
     to right,
-    rgba(142, 234, 255, 0.24),
-    rgba(142, 234, 255, 0)
+    rgba(var(--theme-rgb-bright), 0.24),
+    rgba(var(--theme-rgb-bright), 0)
   );
+  transition: background 450ms ease;
 }
 
 .algorithm-tabs {
   gap: 10px;
 }
 
-.algorithm-tabs p {
-  margin: 0 0 2px;
-  color: #94a3b8;
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
 .algorithm-tab {
+  min-height: 42px;
   padding: 10px 18px;
-  border-radius: 14px;
-  background: rgba(15, 23, 42, 0.54);
-  color: #bfdbfe;
+  background: rgba(2, 6, 23, 0.42);
+  color: var(--theme-main-soft);
   text-align: left;
   font-size: 13px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
+.algorithm-tab:hover,
+.algorithm-tab.active,
 .example-tab:hover,
 .example-tab.active,
 .file-tabs button:hover,
 .file-tabs button.active {
-  border-color: rgba(142, 234, 255, 0.48);
-  background: rgba(14, 165, 233, 0.14);
+  border-color: var(--theme-border-strong);
+  background: rgba(var(--theme-rgb), 0.14);
   color: #f8fafc;
-  box-shadow: 0 0 24px rgba(56, 189, 248, 0.12);
-}
-
-.algorithm-tab:hover,
-.algorithm-tab.active {
-  border-color: rgba(191, 219, 254, 0.42);
-  background: rgba(37, 99, 235, 0.18);
-  color: #f8fafc;
-  box-shadow: 0 0 18px rgba(59, 130, 246, 0.12);
+  box-shadow: 0 0 24px rgba(var(--theme-rgb), 0.12);
 }
 
 .demo-panel {
@@ -127,10 +129,14 @@
   flex-direction: column;
   overflow: hidden;
   min-height: 100%;
-  border: 1px solid rgba(142, 234, 255, 0.18);
-  border-radius: 18px;
-  background: rgba(2, 6, 23, 0.52);
+  border: 1px solid var(--theme-border);
+  border-radius: $demo-radius;
+  background: var(--theme-panel-bg);
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+  transition:
+    border-color 450ms ease,
+    background 450ms ease,
+    box-shadow 450ms ease;
 }
 
 .demo-panel-header {
@@ -139,15 +145,19 @@
   justify-content: space-between;
   gap: 18px;
   padding: 16px 18px;
-  border-bottom: 1px solid rgba(142, 234, 255, 0.14);
-  background: rgba(15, 23, 42, 0.62);
+  border-bottom: 1px solid rgba(var(--theme-rgb-bright), 0.14);
+  background: var(--theme-panel-header);
+  transition:
+    border-color 450ms ease,
+    background 450ms ease;
 }
 
 .demo-panel-header h3 {
   margin: 0;
-  color: #f8fafc;
-  font-size: 17px;
-  letter-spacing: 0.04em;
+  color: #e2e8f0;
+  font-family: "Courier New", monospace;
+  font-size: 15px;
+  letter-spacing: 0.02em;
 }
 
 .file-tabs {
@@ -157,10 +167,10 @@
 }
 
 .file-tabs button {
-  padding: 8px 12px;
-  border-radius: 999px;
+  min-height: 42px;
+  padding: 10px 18px;
   background: rgba(2, 6, 23, 0.42);
-  color: #9eeaff;
+  color: var(--theme-main-soft);
   font-size: 13px;
 }
 
@@ -188,18 +198,23 @@ code {
 
 .detail-card {
   padding: 16px 18px;
-  border: 1px solid rgba(142, 234, 255, 0.16);
-  border-radius: 16px;
-  background: rgba(2, 6, 23, 0.38);
-  box-shadow: 0 0 24px rgba(56, 189, 248, 0.05);
+  border: 1px solid rgba(var(--theme-rgb-bright), 0.16);
+  border-radius: $demo-radius;
+  background: var(--theme-panel-bg-soft);
+  box-shadow: 0 0 24px rgba(var(--theme-rgb), 0.05);
+  transition:
+    border-color 450ms ease,
+    background 450ms ease,
+    box-shadow 450ms ease;
 }
 
 .detail-card h4 {
   margin: 0 0 8px;
-  color: #8eeaff;
+  color: var(--theme-main);
   font-size: 14px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  transition: color 450ms ease;
 }
 
 .detail-card p {
