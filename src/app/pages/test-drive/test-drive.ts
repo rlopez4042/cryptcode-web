@@ -10,7 +10,6 @@ type EncryptionMode = 'caesar' | 'reverse' | 'addx' | 'mixed';
   templateUrl: './test-drive.html',
   styleUrl: './test-drive.scss',
 })
-
 export class TestDrive {
   private readonly defaultSourceCode = `set total to 0
 count i from 1 to 5
@@ -28,76 +27,75 @@ print total`;
 
   selectedEncryptionMode: EncryptionMode = 'caesar';
 
-encryptionModes: { id: EncryptionMode; label: string; description: string }[] = [
-  {
-    id: 'caesar',
-    label: 'Caesar',
-    description: 'Shifts letters using the hard-coded public key.',
-  },
-  {
-    id: 'reverse',
-    label: 'Reverse',
-    description: 'Reverses each line before storing it.',
-  },
-  {
-    id: 'addx',
-    label: 'AddX',
-    description: 'Adds an x after every character.',
-  },
-  {
-    id: 'mixed',
-    label: 'Mixed',
-    description: 'Cycles through Caesar, Reverse, and AddX line by line.',
-  },
-];
+  encryptionModes: { id: EncryptionMode; label: string; description: string }[] = [
+    {
+      id: 'caesar',
+      label: 'Caesar',
+      description: 'Shifts letters using the hard-coded public key.',
+    },
+    {
+      id: 'reverse',
+      label: 'Reverse',
+      description: 'Reverses each line before storing it.',
+    },
+    {
+      id: 'addx',
+      label: 'AddX',
+      description: 'Adds an x after every character.',
+    },
+    {
+      id: 'mixed',
+      label: 'Mixed',
+      description: 'Cycles through Caesar, Reverse, and AddX line by line.',
+    },
+  ];
 
   encryptSource(): void {
-  try {
-    const encrypted = encryptProgram(this.sourceCode, this.getEncryptionKeys());
+    try {
+      const encrypted = encryptProgram(this.sourceCode, this.getEncryptionKeys());
 
-    this.encryptedCode = encrypted.cryptText;
-    this.runOutput = 'Click Run .crypt to execute the encrypted program.';
-    this.decryptedSource = '';
-  } catch (error) {
-    this.encryptedCode = this.formatError(error);
-  }
-}
-
-selectEncryptionMode(mode: EncryptionMode): void {
-  this.selectedEncryptionMode = mode;
-}
-
-private getEncryptionKeys(): ('1' | '2' | '3')[] {
-  if (this.selectedEncryptionMode === 'caesar') {
-    return ['1'];
+      this.encryptedCode = encrypted.cryptText;
+      this.runOutput = 'Click Run .crypt to execute the encrypted program.';
+      this.decryptedSource = '';
+    } catch (error) {
+      this.encryptedCode = this.formatError(error);
+    }
   }
 
-  if (this.selectedEncryptionMode === 'reverse') {
-    return ['2'];
+  selectEncryptionMode(mode: EncryptionMode): void {
+    this.selectedEncryptionMode = mode;
   }
 
-  if (this.selectedEncryptionMode === 'addx') {
-    return ['3'];
+  private getEncryptionKeys(): ('1' | '2' | '3')[] {
+    if (this.selectedEncryptionMode === 'caesar') {
+      return ['1'];
+    }
+
+    if (this.selectedEncryptionMode === 'reverse') {
+      return ['2'];
+    }
+
+    if (this.selectedEncryptionMode === 'addx') {
+      return ['3'];
+    }
+
+    return this.buildMixedKeys();
   }
 
-  return this.buildMixedKeys();
-}
+  private buildMixedKeys(): ('1' | '2' | '3')[] {
+    const nonEmptyLineCount = this.sourceCode
+      .split('\n')
+      .filter((line) => line.trim() !== '').length;
 
-private buildMixedKeys(): ('1' | '2' | '3')[] {
-  const nonEmptyLineCount = this.sourceCode
-    .split('\n')
-    .filter(line => line.trim() !== '')
-    .length;
+    const pattern: ('1' | '2' | '3')[] = ['1', '2', '3'];
+    const keys: ('1' | '2' | '3')[] = [];
 
-  const pattern: ('1' | '2' | '3')[] = ['1', '2', '3'];
-  const keys: ('1' | '2' | '3')[] = [];
+    for (let i = 0; i < nonEmptyLineCount; i++) {
+      keys.push(pattern[i % pattern.length]);
+    }
 
-  for (let i = 0; i < nonEmptyLineCount; i++) {
-    keys.push(pattern[i % pattern.length]);
+    return keys;
   }
-
-  return keys;
-}
 
   runEncrypted(): void {
     if (!this.encryptedCode.trim()) {
@@ -107,9 +105,7 @@ private buildMixedKeys(): ('1' | '2' | '3')[] {
 
     const result = runCryptCodeCrypt(this.encryptedCode);
 
-    this.runOutput = result.errors.length
-      ? result.errors.join('\n')
-      : result.output.join('\n');
+    this.runOutput = result.errors.length ? result.errors.join('\n') : result.output.join('\n');
 
     this.decryptedSource = result.decryptedSource ?? '';
   }

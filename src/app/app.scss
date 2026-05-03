@@ -1,13 +1,13 @@
 @font-face {
-  font-family: "Loaded";
-  src: url("/fonts/loaded.ttf") format("truetype");
+  font-family: 'Loaded';
+  src: url('/fonts/loaded.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Tektur";
-  src: url("/fonts/Tektur-VariableFont_wdth,wght.ttf") format("truetype");
+  font-family: 'Tektur';
+  src: url('/fonts/Tektur-VariableFont_wdth,wght.ttf') format('truetype');
   font-weight: 400 900;
   font-style: normal;
 }
@@ -18,20 +18,20 @@
   --theme-rgb: 56, 189, 248;
   --theme-rgb-bright: 142, 234, 255;
   --theme-bg-a: rgba(56, 189, 248, 0.12);
-  --theme-bg-b: rgba(14, 165, 233, 0.10);
+  --theme-bg-b: rgba(14, 165, 233, 0.1);
   --theme-border: rgba(142, 234, 255, 0.18);
   --theme-border-strong: rgba(142, 234, 255, 0.48);
   --theme-glow: rgba(56, 189, 248, 0.35);
   --theme-panel: rgba(2, 6, 23, 0.52);
   --theme-panel-soft: rgba(2, 6, 23, 0.38);
---theme-panel-bg: rgba(3, 7, 12, 0.58);
---theme-panel-bg-soft: rgba(5, 10, 16, 0.44);
---theme-panel-header: rgba(8, 14, 22, 0.66);
---theme-code-bg: rgba(1, 5, 10, 0.34);
+  --theme-panel-bg: rgba(3, 7, 12, 0.58);
+  --theme-panel-bg-soft: rgba(5, 10, 16, 0.44);
+  --theme-panel-header: rgba(8, 14, 22, 0.66);
+  --theme-code-bg: rgba(1, 5, 10, 0.34);
 
   display: block;
   min-height: 100vh;
-  font-family: "Tektur", Arial, Helvetica, sans-serif;
+  font-family: 'Tektur', Arial, Helvetica, sans-serif;
   color: #f5f8ff;
 
   transition:
@@ -45,27 +45,27 @@
   --theme-rgb: 56, 189, 248;
   --theme-rgb-bright: 142, 234, 255;
   --theme-bg-a: rgba(56, 189, 248, 0.12);
-  --theme-bg-b: rgba(14, 165, 233, 0.10);
+  --theme-bg-b: rgba(14, 165, 233, 0.1);
   --theme-border: rgba(142, 234, 255, 0.18);
   --theme-border-strong: rgba(142, 234, 255, 0.48);
   --theme-glow: rgba(56, 189, 248, 0.35);
 }
 
 :host.theme-demo {
-  --theme-main: #f59e0b;
-  --theme-main-soft: #fbbf24;
-  --theme-rgb: 245, 158, 11;
-  --theme-rgb-bright: 251, 191, 36;
-  --theme-bg-a: rgba(245, 158, 11, 0.10);
-  --theme-bg-b: rgba(180, 83, 9, 0.09);
-  --theme-border: rgba(251, 191, 36, 0.16);
-  --theme-border-strong: rgba(251, 191, 36, 0.42);
-  --theme-glow: rgba(245, 158, 11, 0.28);
+  --theme-main: #ff5f1f;
+  --theme-main-soft: #ff9a6b;
+  --theme-rgb: 255, 95, 31;
+  --theme-rgb-bright: 255, 154, 107;
+  --theme-bg-a: rgba(255, 95, 31, 0.1);
+  --theme-bg-b: rgba(190, 55, 15, 0.09);
+  --theme-border: rgba(255, 154, 107, 0.16);
+  --theme-border-strong: rgba(255, 154, 107, 0.42);
+  --theme-glow: rgba(255, 95, 31, 0.28);
 
-  --theme-panel-bg: rgba(10, 7, 4, 0.62);
-  --theme-panel-bg-soft: rgba(12, 8, 5, 0.48);
-  --theme-panel-header: rgba(15, 10, 6, 0.70);
-  --theme-code-bg: rgba(7, 5, 3, 0.38);
+  --theme-panel-bg: rgba(10, 6, 4, 0.62);
+  --theme-panel-bg-soft: rgba(13, 7, 5, 0.48);
+  --theme-panel-header: rgba(16, 8, 5, 0.7);
+  --theme-code-bg: rgba(8, 4, 3, 0.38);
 }
 
 :host.theme-try {
@@ -73,7 +73,7 @@
   --theme-main-soft: #86efac;
   --theme-rgb: 34, 197, 94;
   --theme-rgb-bright: 134, 239, 172;
-  --theme-bg-a: rgba(34, 197, 94, 0.10);
+  --theme-bg-a: rgba(34, 197, 94, 0.1);
   --theme-bg-b: rgba(21, 128, 61, 0.09);
   --theme-border: rgba(134, 239, 172, 0.16);
   --theme-border-strong: rgba(134, 239, 172, 0.42);
@@ -81,7 +81,7 @@
 
   --theme-panel-bg: rgba(4, 9, 6, 0.62);
   --theme-panel-bg-soft: rgba(5, 11, 7, 0.48);
-  --theme-panel-header: rgba(6, 14, 9, 0.70);
+  --theme-panel-header: rgba(6, 14, 9, 0.7);
   --theme-code-bg: rgba(3, 7, 5, 0.38);
 }
 
@@ -202,7 +202,7 @@
   background: linear-gradient(
     to bottom,
     rgba(2, 6, 23, 0.42),
-    rgba(2, 6, 23, 0.20) 58%,
+    rgba(2, 6, 23, 0.2) 58%,
     rgba(2, 6, 23, 0)
   );
 
@@ -211,7 +211,7 @@
 }
 
 .site-header::after {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   right: 0;
@@ -232,7 +232,7 @@
 
 .logo {
   color: var(--theme-main);
-  font-family: "Loaded", Arial, Helvetica, sans-serif;
+  font-family: 'Loaded', Arial, Helvetica, sans-serif;
   font-size: 26px;
   font-style: oblique;
   letter-spacing: 0.08em;
@@ -262,14 +262,13 @@
   border: none;
   background: transparent;
   color: #f8fafc;
-  font-family: "Loaded", Arial, Helvetica, sans-serif;
+  font-family: 'Loaded', Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-style: oblique;
   font-weight: normal;
   letter-spacing: 0.08em;
   cursor: pointer;
-  text-shadow:
-    0 0 4px rgba(255, 255, 255, 0.25);
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.25);
   transition:
     color 450ms ease,
     text-shadow 450ms ease;

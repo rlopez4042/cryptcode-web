@@ -28,7 +28,7 @@
   flex-direction: column;
   align-items: center;
   margin: 0;
-  font-family: "Loaded", Arial, Helvetica, sans-serif;
+  font-family: 'Loaded', Arial, Helvetica, sans-serif;
   font-size: clamp(96px, 16vw, 220px);
   font-style: oblique;
   font-weight: normal;
@@ -73,7 +73,7 @@
 .about-info-block h2 {
   margin-bottom: 22px;
   color: #8eeaff;
-  font-family: "Loaded", "Tektur", Arial, Helvetica, sans-serif;
+  font-family: 'Loaded', 'Tektur', Arial, Helvetica, sans-serif;
   font-size: clamp(26px, 3.2vw, 42px);
   font-style: oblique;
   font-weight: normal;
@@ -124,8 +124,7 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  text-shadow:
-    0 0 6px rgba(56, 189, 248, 0.45);
+  text-shadow: 0 0 6px rgba(56, 189, 248, 0.45);
 }
 
 .feature-list span {
@@ -153,7 +152,7 @@
 .syntax-grid code {
   display: block;
   color: #9eeaff;
-  font-family: "Courier New", monospace;
+  font-family: 'Courier New', monospace;
   font-size: 15px;
   line-height: 1.6;
 }

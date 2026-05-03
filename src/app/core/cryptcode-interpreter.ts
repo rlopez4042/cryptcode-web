@@ -56,7 +56,7 @@ function executeLines(
   lines: string[],
   variables: Record<string, number>,
   output: string[],
-  lineOffset: number = 0
+  lineOffset: number = 0,
 ): void {
   let i = 0;
 
@@ -207,11 +207,7 @@ function findMatchingEnd(lines: string[], startIndex: number): number {
   for (let index = startIndex; index < lines.length; index++) {
     const line = lines[index].trim();
 
-    if (
-      line.startsWith('count ') ||
-      line.startsWith('repeat ') ||
-      line.startsWith('when ')
-    ) {
+    if (line.startsWith('count ') || line.startsWith('repeat ') || line.startsWith('when ')) {
       depth++;
     } else if (line === 'end') {
       if (depth === 0) {
@@ -324,7 +320,7 @@ function executeWhenChain(
   startIndex: number,
   variables: Record<string, number>,
   output: string[],
-  lineOffset: number = 0
+  lineOffset: number = 0,
 ): number {
   const branches: {
     condition: string;
@@ -345,11 +341,7 @@ function executeWhenChain(
       while (i < lines.length) {
         const nextLine = lines[i].trim();
 
-        if (
-          nextLine.startsWith('when ') ||
-          nextLine === 'else' ||
-          nextLine === 'end'
-        ) {
+        if (nextLine.startsWith('when ') || nextLine === 'else' || nextLine === 'end') {
           break;
         }
 

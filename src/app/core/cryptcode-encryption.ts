@@ -19,11 +19,11 @@ export function caesarEncrypt(text: string, shift: number = PUBLIC_KEY): string 
   for (const char of text) {
     if (char >= 'a' && char <= 'z') {
       result += String.fromCharCode(
-        ((char.charCodeAt(0) - 'a'.charCodeAt(0) + shift) % 26) + 'a'.charCodeAt(0)
+        ((char.charCodeAt(0) - 'a'.charCodeAt(0) + shift) % 26) + 'a'.charCodeAt(0),
       );
     } else if (char >= 'A' && char <= 'Z') {
       result += String.fromCharCode(
-        ((char.charCodeAt(0) - 'A'.charCodeAt(0) + shift) % 26) + 'A'.charCodeAt(0)
+        ((char.charCodeAt(0) - 'A'.charCodeAt(0) + shift) % 26) + 'A'.charCodeAt(0),
       );
     } else {
       result += char;
@@ -39,11 +39,11 @@ export function caesarDecrypt(text: string, shift: number = PRIVATE_KEY): string
   for (const char of text) {
     if (char >= 'a' && char <= 'z') {
       result += String.fromCharCode(
-        ((char.charCodeAt(0) - 'a'.charCodeAt(0) + shift) % 26) + 'a'.charCodeAt(0)
+        ((char.charCodeAt(0) - 'a'.charCodeAt(0) + shift) % 26) + 'a'.charCodeAt(0),
       );
     } else if (char >= 'A' && char <= 'Z') {
       result += String.fromCharCode(
-        ((char.charCodeAt(0) - 'A'.charCodeAt(0) + shift) % 26) + 'A'.charCodeAt(0)
+        ((char.charCodeAt(0) - 'A'.charCodeAt(0) + shift) % 26) + 'A'.charCodeAt(0),
       );
     } else {
       result += char;
@@ -75,7 +75,10 @@ export function addxDecrypt(text: string): string {
   return text.replaceAll('x', '');
 }
 
-export function validateKeyPair(publicKey: number = PUBLIC_KEY, privateKey: number = PRIVATE_KEY): void {
+export function validateKeyPair(
+  publicKey: number = PUBLIC_KEY,
+  privateKey: number = PRIVATE_KEY,
+): void {
   if (publicKey === privateKey) {
     throw new Error('Public and private keys must be different.');
   }
@@ -119,17 +122,15 @@ export function decryptLine(line: string, key: CryptCodeAlgorithmKey): string {
 
 export function encryptProgram(
   source: string,
-  requestedKeys: CryptCodeAlgorithmKey[]
+  requestedKeys: CryptCodeAlgorithmKey[],
 ): EncryptProgramResult {
   validateKeyPair();
 
   const plainLines = source.split('\n');
-  const codeLines = plainLines.filter(line => line.trim() !== '');
+  const codeLines = plainLines.filter((line) => line.trim() !== '');
 
   const keys =
-    requestedKeys.length === 1
-      ? Array(codeLines.length).fill(requestedKeys[0])
-      : requestedKeys;
+    requestedKeys.length === 1 ? Array(codeLines.length).fill(requestedKeys[0]) : requestedKeys;
 
   if (keys.length !== codeLines.length) {
     throw new Error('Number of keys must match number of non-empty code lines.');
@@ -171,7 +172,7 @@ export function decryptProgram(cryptText: string): DecryptProgramResult {
     .filter(Boolean) as CryptCodeAlgorithmKey[];
 
   const encryptedLines = allLines.slice(1);
-  const encryptedCodeLines = encryptedLines.filter(line => line.trim() !== '');
+  const encryptedCodeLines = encryptedLines.filter((line) => line.trim() !== '');
 
   if (keys.length !== encryptedCodeLines.length) {
     throw new Error('Number of keys must match number of non-empty encrypted lines.');
@@ -196,10 +197,10 @@ export function decryptProgram(cryptText: string): DecryptProgramResult {
     keyIndex++;
   }
 
-    return {
+  return {
     decryptedLines,
     decryptedSource: decryptedLines.join('\n').trim(),
-    };
+  };
 }
 
 function isValidAlgorithmKey(key: string): key is CryptCodeAlgorithmKey {

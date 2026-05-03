@@ -11,13 +11,7 @@
 </div>
 
 <header class="site-header">
-  <button
-  type="button"
-  class="logo logo-button"
-  (click)="setActivePage('about')"
->
-  CryptCode
-</button>
+  <button type="button" class="logo logo-button" (click)="setActivePage('about')">CryptCode</button>
 
   <nav class="nav-menu">
     <button
@@ -50,32 +44,28 @@
 </header>
 
 <main class="page">
-@if (activePage === 'about') {
-  <section class="section" [class]="slideDirection">
-    <app-about></app-about>
-  </section>
-}
+  @if (activePage === 'about') {
+    <section class="section" [class]="slideDirection">
+      <app-about></app-about>
+    </section>
+  }
 
-@if (activePage === 'demo') {
-  <section class="section" [class]="slideDirection">
-    <app-demo />
-  </section>
-}
+  @if (activePage === 'demo') {
+    <section class="section" [class]="slideDirection">
+      <app-demo />
+    </section>
+  }
 
-@if (activePage === 'try') {
-  <section class="section" [class]="slideDirection">
-    <app-test-drive></app-test-drive>
-  </section>
-}
+  @if (activePage === 'try') {
+    <section class="section" [class]="slideDirection">
+      <app-test-drive></app-test-drive>
+    </section>
+  }
 </main>
 
 <footer class="site-footer">
   <p>Built as a portfolio demo for the CryptCode language.</p>
-  <a
-    href="https://github.com/rlopez4042/cryptcode-web"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
+  <a href="https://github.com/rlopez4042/cryptcode-web" target="_blank" rel="noopener noreferrer">
     View GitHub
   </a>
 </footer>

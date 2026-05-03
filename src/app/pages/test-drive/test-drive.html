@@ -6,14 +6,17 @@
     </h1>
 
     <p class="test-drive-intro">
-      Write readable CryptCode, encrypt it into a .crypt file, then run it through the browser version of the interpreter.
+      Write readable CryptCode, encrypt it into a .crypt file, then run it through the browser
+      version of the interpreter.
     </p>
   </div>
 
   <section class="encryption-picker">
     <div>
       <p class="picker-label">Encryption method</p>
-      <p class="picker-description">Choose how the readable source is converted into encrypted .crypt lines.</p>
+      <p class="picker-description">
+        Choose how the readable source is converted into encrypted .crypt lines.
+      </p>
     </div>
 
     <div class="encryption-buttons">
@@ -39,16 +42,10 @@
           <h2>.ccode editor</h2>
         </div>
 
-        <button type="button" class="small-button" (click)="resetExample()">
-          Reset
-        </button>
+        <button type="button" class="small-button" (click)="resetExample()">Reset</button>
       </div>
 
-      <textarea
-        class="code-editor"
-        spellcheck="false"
-        [(ngModel)]="sourceCode"
-      ></textarea>
+      <textarea class="code-editor" spellcheck="false" [(ngModel)]="sourceCode"></textarea>
     </section>
 
     <section class="test-panel crypt-panel">

@@ -20,9 +20,8 @@ type DemoExample = {
   selector: 'app-demo',
   imports: [],
   templateUrl: './demo.html',
-  styleUrl: './demo.scss'
+  styleUrl: './demo.scss',
 })
-
 export class Demo {
   selectedExampleId: DemoExampleId = 'fizzbuzz';
   selectedView: DemoView = 'ccode';
@@ -31,7 +30,7 @@ export class Demo {
   encryptionMethods: { id: EncryptionMethod; label: string }[] = [
     { id: 'caesar', label: 'Caesar' },
     { id: 'reverse', label: 'Reverse' },
-    { id: 'addx', label: 'AddX' }
+    { id: 'addx', label: 'AddX' },
   ];
 
   examples: DemoExample[] = [
@@ -46,7 +45,7 @@ ilccargg 1 gb 15`,
         reverse: `Key: 2
 51 ot 1 zzubzzif`,
         addx: `Key: 3
-gj{{cv{{!2!up!26`
+gj{{cv{{!2!up!26`,
       },
       output: `1
 2
@@ -68,7 +67,7 @@ FizzBuzz`,
       encryptionExplanation:
         'The encrypted version stores the command in a .crypt file. The Key line tells the interpreter which decryptor to use for the encrypted line.',
       outputExplanation:
-        'The interpreter prints numbers from 1 to 15, replacing multiples of 3 with Fizz, multiples of 5 with Buzz, and multiples of both with FizzBuzz.'
+        'The interpreter prints numbers from 1 to 15, replacing multiples of 3 with Fizz, multiples of 5 with Buzz, and multiples of both with FizzBuzz.',
     },
     {
       id: 'complex',
@@ -117,7 +116,7 @@ fmtf
 qsjou!pee
 foe
 foe
-qsjou!upubm`
+qsjou!upubm`,
       },
       output: `odd
 even
@@ -130,7 +129,7 @@ odd
       encryptionExplanation:
         'Each non-empty line can be encrypted. In a real .crypt file, the Key line can choose the method for each line, so different lines can use different decryptors.',
       outputExplanation:
-        'The loop counts from 1 to 5, prints whether each number is odd or even, keeps a running total, and prints 15 at the end.'
+        'The loop counts from 1 to 5, prints whether each number is odd or even, keeps a running total, and prints 15 at the end.',
     },
     {
       id: 'simple',
@@ -151,7 +150,7 @@ x tnirp`,
         addx: `Key: 3 3 3
 qsjou!Ifmmp!gspn!DszquDpef
 tfu!y!up!6
-qsjou!y`
+qsjou!y`,
       },
       output: `Hello from CryptCode
 5`,
@@ -160,12 +159,14 @@ qsjou!y`
       encryptionExplanation:
         'The encrypted file hides the original commands, but the interpreter can recover them when the correct key information is available.',
       outputExplanation:
-        'The program prints a message, stores a number in a variable, then prints the stored value.'
-    }
+        'The program prints a message, stores a number in a variable, then prints the stored value.',
+    },
   ];
 
   get selectedExample(): DemoExample {
-    return this.examples.find(example => example.id === this.selectedExampleId) ?? this.examples[0];
+    return (
+      this.examples.find((example) => example.id === this.selectedExampleId) ?? this.examples[0]
+    );
   }
 
   get displayedCode(): string {

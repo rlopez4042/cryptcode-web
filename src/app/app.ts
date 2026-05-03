@@ -10,9 +10,8 @@ type SlideDirection = 'slide-left' | 'slide-right';
   selector: 'app-root',
   imports: [About, Demo, TestDrive],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
 })
-
 export class App {
   activePage: Page = 'about';
   slideDirection: SlideDirection = 'slide-left';
@@ -33,18 +32,18 @@ export class App {
   }
   private pageOrder: Page[] = ['about', 'demo', 'try'];
 
-setActivePage(page: Page): void {
-  const currentIndex = this.pageOrder.indexOf(this.activePage);
-  const nextIndex = this.pageOrder.indexOf(page);
+  setActivePage(page: Page): void {
+    const currentIndex = this.pageOrder.indexOf(this.activePage);
+    const nextIndex = this.pageOrder.indexOf(page);
 
-  if (page !== this.activePage) {
-    this.slideDirection = nextIndex > currentIndex ? 'slide-left' : 'slide-right';
-    this.activePage = page;
+    if (page !== this.activePage) {
+      this.slideDirection = nextIndex > currentIndex ? 'slide-left' : 'slide-right';
+      this.activePage = page;
+    }
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   }
-
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth',
-  });
-}
 }

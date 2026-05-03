@@ -10,19 +10,19 @@
     <section class="about-info-block">
       <h2>What is CryptCode?</h2>
       <p>
-        CryptCode is an interpreted programming language where source files are not
-        stored as plain readable code. You write a <code>.ccode</code> file, encrypt
-        it into a <code>.crypt</code> file, then run the encrypted version through the
-        CryptCode interpreter using the matching key.
+        CryptCode is an interpreted programming language where source files are not stored as plain
+        readable code. You write a <code>.ccode</code> file, encrypt it into a
+        <code>.crypt</code> file, then run the encrypted version through the CryptCode interpreter
+        using the matching key.
       </p>
     </section>
     <section class="about-info-block">
       <h2>The basic flow</h2>
 
       <p>
-        A CryptCode program starts as a readable <code>.ccode</code> file written with
-        simple commands like <code>print</code>, <code>set</code>, <code>count</code>,
-        and <code>when</code>. From there, the file is encrypted into a <code>.crypt</code>
+        A CryptCode program starts as a readable <code>.ccode</code> file written with simple
+        commands like <code>print</code>, <code>set</code>, <code>count</code>, and
+        <code>when</code>. From there, the file is encrypted into a <code>.crypt</code>
         file that can be decrypted and run by the interpreter.
       </p>
 
@@ -39,12 +39,18 @@
 
         <li>
           <strong>Key</strong>
-          <span>Add a <code>Key:</code> line that matches the encryption method used on each non-empty line.</span>
+          <span
+            >Add a <code>Key:</code> line that matches the encryption method used on each non-empty
+            line.</span
+          >
         </li>
 
         <li>
           <strong>Run</strong>
-          <span>Execute the encrypted file so CryptCode can decrypt the lines and interpret the program.</span>
+          <span
+            >Execute the encrypted file so CryptCode can decrypt the lines and interpret the
+            program.</span
+          >
         </li>
       </ul>
     </section>
@@ -52,9 +58,9 @@
       <h2>Encryption methods</h2>
 
       <p>
-        CryptCode currently supports three encryption methods. Each method can be assigned
-        to a different non-empty line, and the key tells the interpreter which decryptor to
-        use when the encrypted file runs.
+        CryptCode currently supports three encryption methods. Each method can be assigned to a
+        different non-empty line, and the key tells the interpreter which decryptor to use when the
+        encrypted file runs.
       </p>
 
       <ul class="feature-list flow-list">
@@ -78,10 +84,10 @@
     <section class="about-info-block">
       <h2>Core syntax</h2>
       <p>
-        The language is intentionally small, so the commands are easy to read and reason
-        about. Blocks are closed with <code>end</code>, and conditional branches can use
-        <code>else</code>. Expressions also need spaces between values and operators, so
-        <code>total + i</code> works, but <code>total+i</code> does not.
+        The language is intentionally small, so the commands are easy to read and reason about.
+        Blocks are closed with <code>end</code>, and conditional branches can use <code>else</code>.
+        Expressions also need spaces between values and operators, so <code>total + i</code> works,
+        but <code>total+i</code> does not.
       </p>
 
       <ul class="syntax-grid">
@@ -100,8 +106,8 @@
       </ul>
 
       <p class="syntax-note">
-        Supported operators include <code>+</code>, <code>-</code>, <code>*</code>,
-        <code>/</code>, and <code>mod</code>.
+        Supported operators include <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>,
+        and <code>mod</code>.
       </p>
     </section>
   </div>
