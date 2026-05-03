@@ -37,15 +37,15 @@ export class Demo {
     {
       id: 'fizzbuzz',
       label: 'FizzBuzz',
-      title: 'FizzBuzz program',
-      ccode: `fizzbuzz 1 to 15`,
+      title: 'FizzBuzz command',
+      ccode: `fizzbuzz 1 to 30`,
       crypt: {
         caesar: `Key: 1
-ilccargg 1 gb 15`,
+svmmohmm 1 gb 30`,
         reverse: `Key: 2
-51 ot 1 zzubzzif`,
+03 ot 1 zzubzzif`,
         addx: `Key: 3
-gj{{cv{{!2!up!26`,
+fxixzxzxbxuxzxzx x1x xtxox x3x0x`,
       },
       output: `1
 2
@@ -61,105 +61,164 @@ Buzz
 Fizz
 13
 14
+FizzBuzz
+16
+17
+Fizz
+19
+Buzz
+Fizz
+22
+23
+Fizz
+Buzz
+26
+Fizz
+28
+29
 FizzBuzz`,
       fileExplanation:
-        'This is the shortest demo because FizzBuzz is built directly into the language as a command.',
+        'This example uses the built-in FizzBuzz command. It keeps the source short while still showing how CryptCode can run a recognizable programming exercise.',
       encryptionExplanation:
-        'The encrypted version stores the command in a .crypt file. The Key line tells the interpreter which decryptor to use for the encrypted line.',
+        'The .crypt file starts with a Key line. Since this program has one non-empty source line, the key only needs one number.',
       outputExplanation:
-        'The interpreter prints numbers from 1 to 15, replacing multiples of 3 with Fizz, multiples of 5 with Buzz, and multiples of both with FizzBuzz.',
+        'The interpreter counts from 1 to 30, replacing multiples of 3 with Fizz, multiples of 5 with Buzz, and multiples of both with FizzBuzz.',
     },
     {
       id: 'complex',
-      label: 'Complex',
-      title: 'Counter with conditions',
+      label: 'Loop Logic',
+      title: 'Loop with conditions',
       ccode: `set total to 0
-count i from 1 to 5
+count i from 1 to 6
 set total to total + i
 when i mod 2 is 0
 print even
 else
 print odd
 end
+when i mod 3 is 0
+print multiple of three
+end
 end
 print total`,
       crypt: {
-        caesar: `Key: 1 1 1 1 1 1 1 1 1 1
-vhg gbgnm gb 0
-pbhag v sebz 1 gb 5
-vhg gbgnm gb gbgnm + v
+        caesar: `Key: 1 1 1 1 1 1 1 1 1 1 1 1 1
+frg gbgny gb 0
+pbhag v sebz 1 gb 6
+frg gbgny gb gbgny + v
 jura v zbq 2 vf 0
 cevag rira
 ryfr
 cevag bqq
 raq
+jura v zbq 3 vf 0
+cevag zhygvcyr bs guerr
 raq
-cevag gbgnm`,
-        reverse: `Key: 2 2 2 2 2 2 2 2 2 2
+raq
+cevag gbgny`,
+        reverse: `Key: 2 2 2 2 2 2 2 2 2 2 2 2 2
 0 ot latot tes
-5 ot 1 morf i tnuoc
+6 ot 1 morf i tnuoc
 i + latot ot latot tes
 0 si 2 dom i nehw
 neve tnirp
 esle
 ddo tnirp
 dne
+0 si 3 dom i nehw
+eerht fo elpitlum tnirp
+dne
 dne
 latot tnirp`,
-        addx: `Key: 3 3 3 3 3 3 3 3 3 3
-tfu!upubm!up!1
-dpvou!j!gspn!2!up!6
-tfu!upubm!up!upubm!,!j
-xifo!j!npe!3!jt!1
-qsjou!fwfo
-fmtf
-qsjou!pee
-foe
-foe
-qsjou!upubm`,
+        addx: `Key: 3 3 3 3 3 3 3 3 3 3 3 3 3
+sxextx xtxoxtxaxlx xtxox x0x
+cxoxuxnxtx xix xfxrxoxmx x1x xtxox x6x
+sxextx xtxoxtxaxlx xtxox xtxoxtxaxlx x+x xix
+wxhxexnx xix xmxoxdx x2x xixsx x0x
+pxrxixnxtx xexvxexnx
+exlxsxex
+pxrxixnxtx xoxdxdx
+exnxdx
+wxhxexnx xix xmxoxdx x3x xixsx x0x
+pxrxixnxtx xmxuxlxtxixpxlxex xoxfx xtxhxrxexex
+exnxdx
+exnxdx
+pxrxixnxtx xtxoxtxaxlx`,
       },
       output: `odd
 even
 odd
+multiple of three
 even
 odd
-15`,
+even
+multiple of three
+21`,
       fileExplanation:
-        'This program shows more of the language: variables, counting, math, conditions, else branches, and nested blocks.',
+        'This example shows the larger language flow: a variable, a count loop, math, conditions, else branches, and explicit end statements.',
       encryptionExplanation:
-        'Each non-empty line can be encrypted. In a real .crypt file, the Key line can choose the method for each line, so different lines can use different decryptors.',
+        'The Key line has one number for each non-empty encrypted line. That is how the interpreter knows which decryptor to use as it rebuilds the readable program.',
       outputExplanation:
-        'The loop counts from 1 to 5, prints whether each number is odd or even, keeps a running total, and prints 15 at the end.',
+        'The program counts from 1 to 6, prints whether each number is odd or even, marks multiples of 3, keeps a running total, and prints 21 at the end.',
     },
     {
       id: 'simple',
-      label: 'Simple',
-      title: 'Hello and variable',
-      ccode: `print Hello from CryptCode
-set x to 5
-print x`,
+      label: 'Variables',
+      title: 'Variables and repeat',
+      ccode: `print Welcome to CryptCode
+set score to 10
+print score
+set score to score + 5
+print score
+repeat 3
+print loop
+end
+print done`,
       crypt: {
-        caesar: `Key: 1 1 1
-cevag Uryyb sebz PelcgPbqr
-vhg k gb 5
-cevag k`,
-        reverse: `Key: 2 2 2
-edoCtpyrc morf olleH tnirp
-5 ot x tes
-x tnirp`,
-        addx: `Key: 3 3 3
-qsjou!Ifmmp!gspn!DszquDpef
-tfu!y!up!6
-qsjou!y`,
+        caesar: `Key: 1 1 1 1 1 1 1 1 1
+cevag Jrypbzr gb PelcgPbqr
+frg fpber gb 10
+cevag fpber
+frg fpber gb fpber + 5
+cevag fpber
+ercrng 3
+cevag ybbc
+raq
+cevag qbar`,
+        reverse: `Key: 2 2 2 2 2 2 2 2 2
+edoCtpyrC ot emocleW tnirp
+01 ot erocs tes
+erocs tnirp
+5 + erocs ot erocs tes
+erocs tnirp
+3 taeper
+pool tnirp
+dne
+enod tnirp`,
+        addx: `Key: 3 3 3 3 3 3 3 3 3
+pxrxixnxtx xWxexlxcxoxmxex xtxox xCxrxyxpxtxCxoxdxex
+sxextx xsxcxoxrxex xtxox x1x0x
+pxrxixnxtx xsxcxoxrxex
+sxextx xsxcxoxrxex xtxox xsxcxoxrxex x+x x5x
+pxrxixnxtx xsxcxoxrxex
+rxexpxexaxtx x3x
+pxrxixnxtx xlxoxoxpx
+exnxdx
+pxrxixnxtx xdxoxnxex`,
       },
-      output: `Hello from CryptCode
-5`,
+      output: `Welcome to CryptCode
+10
+15
+loop
+loop
+loop
+done`,
       fileExplanation:
-        'This simple example shows the basic idea of writing readable CryptCode before turning it into an encrypted file.',
+        'This example focuses on the basics: printing text, storing a value, changing that value, repeating a block, and ending the program cleanly.',
       encryptionExplanation:
-        'The encrypted file hides the original commands, but the interpreter can recover them when the correct key information is available.',
+        'The encrypted version hides each readable source line. The Key line still keeps the file runnable by telling CryptCode how to decrypt each line.',
       outputExplanation:
-        'The program prints a message, stores a number in a variable, then prints the stored value.',
+        'The program prints a welcome message, shows the score before and after adding 5, repeats a word three times, and then prints done.',
     },
   ];
 

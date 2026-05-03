@@ -407,20 +407,20 @@ $test-radius: 10px;
     margin-bottom: 16px;
   }
 
-.test-drive-title {
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  text-align: center;
-  gap: 7px;
-  max-width: 100%;
-  margin-bottom: 12px;
-  font-size: clamp(24px, 7.2vw, 31px);
-  line-height: 1;
-  letter-spacing: 0.045em;
-  white-space: nowrap;
-  text-align: center;
-}
+  .test-drive-title {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    text-align: center;
+    gap: 7px;
+    max-width: 100%;
+    margin-bottom: 12px;
+    font-size: clamp(24px, 7.2vw, 31px);
+    line-height: 1;
+    letter-spacing: 0.045em;
+    white-space: nowrap;
+    text-align: center;
+  }
 
   .test-drive-intro {
     font-size: 13px;

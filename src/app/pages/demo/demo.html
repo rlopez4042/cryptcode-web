@@ -29,14 +29,13 @@
           <button
             type="button"
             class="algorithm-tab"
-            [class.active]="selectedEncryption === method.id && selectedView === 'crypt'"
+            [class.active]="selectedEncryption === method.id"
             (click)="setSelectedEncryption(method.id)"
           >
             {{ method.label }}
           </button>
         }
       </div>
-
     </aside>
 
     <section class="demo-panel">

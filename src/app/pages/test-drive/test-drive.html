@@ -49,16 +49,12 @@
           aria-label="Encryption method"
         >
           @for (mode of encryptionModes; track mode.id) {
-            <option [value]="mode.id">
-              {{ mode.label }} - {{ mode.description }}
-            </option>
+            <option [value]="mode.id">{{ mode.label }} - {{ mode.description }}</option>
           }
         </select>
 
         <div class="source-actions">
-          <button type="button" class="small-button" (click)="resetExample()">
-            Reset
-          </button>
+          <button type="button" class="small-button" (click)="resetExample()">Reset</button>
 
           <button type="button" class="small-button primary" (click)="encryptSource()">
             Encrypt &amp; Run

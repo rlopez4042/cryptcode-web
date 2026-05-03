@@ -169,6 +169,10 @@ p {
   margin-top: 0;
 }
 
+.keep-one-line {
+  white-space: nowrap;
+}
+
 @media (max-width: 900px) {
   .about-page {
     padding: 0 28px 24px;
@@ -284,6 +288,10 @@ p {
   .syntax-grid code {
     font-size: 13px;
     overflow-wrap: anywhere;
+  }
+
+  .keep-one-line {
+    white-space: normal;
   }
 }
 
