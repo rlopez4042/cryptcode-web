@@ -234,6 +234,36 @@ code {
   }
 }
 
+@media (max-width: 900px) {
+  .demo-page {
+    width: min(100%, calc(100vw - 32px));
+    padding-top: 34px;
+  }
+
+  .demo-title {
+    margin-bottom: 26px;
+    font-size: clamp(38px, 9vw, 64px);
+  }
+
+  .demo-layout {
+    gap: 16px;
+  }
+
+  .demo-panel-header {
+    gap: 14px;
+  }
+
+  code {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .detail-card p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
+
 @media (max-width: 820px) {
   .demo-page {
     padding-top: 36px;
@@ -274,5 +304,136 @@ code {
 
   pre {
     min-height: 260px;
+  }
+}
+
+@media (max-width: 640px) {
+  .demo-page {
+    width: 100%;
+    padding-top: 16px;
+  }
+
+.demo-title {
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  text-align: center;
+  gap: 7px;
+  max-width: 100%;
+  margin-bottom: 18px;
+  font-size: clamp(24px, 7.2vw, 31px);
+  line-height: 1;
+  letter-spacing: 0.045em;
+  white-space: nowrap;
+}
+
+  .demo-sidebar {
+    gap: 9px;
+  }
+
+  .example-tabs,
+  .algorithm-tabs {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .example-tabs p,
+  .algorithm-tabs p {
+    grid-column: 1 / -1;
+    margin-bottom: 0;
+    font-size: 10px;
+  }
+
+  .example-tab,
+  .algorithm-tab {
+    min-height: 32px;
+    padding: 6px 7px;
+    font-size: 9px;
+    letter-spacing: 0.045em;
+    text-align: center;
+  }
+
+  .sidebar-divider {
+    margin: 1px 0;
+  }
+
+  .demo-panel {
+    min-height: auto;
+  }
+
+  .demo-panel-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 9px;
+    padding: 11px 12px;
+  }
+
+  .demo-panel-header h3 {
+    display: none;
+  }
+
+  .file-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+    width: 100%;
+  }
+
+  .file-tabs button {
+    width: 100%;
+    min-height: 32px;
+    padding: 6px 7px;
+    font-size: 9px;
+    letter-spacing: 0.045em;
+  }
+
+  pre {
+    min-height: 220px;
+    padding: 14px;
+  }
+
+  code {
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  .demo-details {
+    gap: 12px;
+  }
+
+  .detail-card {
+    padding: 14px;
+  }
+
+  .detail-card h4 {
+    font-size: 12px;
+  }
+
+  .detail-card p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 420px) {
+  .demo-title {
+    font-size: clamp(22px, 7vw, 28px);
+    gap: 6px;
+  }
+
+  pre {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 360px) {
+  .example-tabs,
+  .algorithm-tabs,
+  .file-tabs {
+    grid-template-columns: 1fr;
+  }
+
+  .demo-title {
+    font-size: 21px;
   }
 }

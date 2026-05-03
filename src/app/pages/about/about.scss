@@ -168,3 +168,131 @@ h3,
 p {
   margin-top: 0;
 }
+
+@media (max-width: 900px) {
+  .about-page {
+    padding: 0 28px 24px;
+  }
+
+  .about-hero {
+    min-height: calc(100vh - 150px);
+  }
+
+  .hero-title {
+    font-size: clamp(82px, 18vw, 150px);
+  }
+
+  .about-hero .hero-text {
+    max-width: 680px;
+    margin: 40px auto 0;
+    white-space: normal;
+  }
+
+  .about-info-block h2 {
+    transform: none;
+  }
+
+  .about-info-block p,
+  .about-info-block li {
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  .feature-list li:last-child span {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-page {
+    padding: 0 16px 18px;
+  }
+
+  .about-hero {
+    min-height: auto;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    padding-top: 16px;
+    padding-bottom: 38px;
+  }
+
+  .hero-title {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: flex-start;
+    gap: 0;
+    font-size: clamp(34px, 13vw, 54px);
+    line-height: 1;
+    letter-spacing: 0.055em;
+  }
+
+  .about-hero .hero-text {
+    margin-top: 16px;
+    max-width: 100%;
+    font-size: 13px;
+    line-height: 1.6;
+    white-space: normal;
+  }
+
+  .about-content {
+    padding-top: 12px;
+  }
+
+  .about-info-block {
+    margin-bottom: 46px;
+  }
+
+  .about-info-block h2 {
+    margin-bottom: 16px;
+    font-size: clamp(24px, 8vw, 34px);
+  }
+
+  .about-info-block p,
+  .about-info-block li {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .feature-list {
+    gap: 12px;
+    margin-top: 22px;
+  }
+
+  .feature-list li {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 16px;
+    border-radius: 10px;
+  }
+
+  .feature-list strong {
+    font-size: 13px;
+  }
+
+  .syntax-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 22px;
+  }
+
+  .syntax-grid li {
+    padding: 14px 15px;
+    border-radius: 10px;
+  }
+
+  .syntax-grid code {
+    font-size: 13px;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero-title {
+    font-size: clamp(30px, 14vw, 46px);
+  }
+
+  .about-hero .hero-text {
+    font-size: 13px;
+  }
+}

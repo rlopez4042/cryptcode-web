@@ -32,18 +32,19 @@ export class App {
   }
   private pageOrder: Page[] = ['about', 'demo', 'try'];
 
-  setActivePage(page: Page): void {
-    const currentIndex = this.pageOrder.indexOf(this.activePage);
-    const nextIndex = this.pageOrder.indexOf(page);
+setActivePage(page: Page): void {
+  const currentIndex = this.pageOrder.indexOf(this.activePage);
+  const nextIndex = this.pageOrder.indexOf(page);
+  const isMobile = window.matchMedia('(max-width: 640px)').matches;
 
-    if (page !== this.activePage) {
-      this.slideDirection = nextIndex > currentIndex ? 'slide-left' : 'slide-right';
-      this.activePage = page;
-    }
-
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+  if (page !== this.activePage) {
+    this.slideDirection = nextIndex > currentIndex ? 'slide-left' : 'slide-right';
+    this.activePage = page;
   }
+
+  window.scrollTo({
+    top: 0,
+    behavior: isMobile ? 'auto' : 'smooth',
+  });
+}
 }

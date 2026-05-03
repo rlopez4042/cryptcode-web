@@ -1,13 +1,17 @@
 @font-face {
   font-family: 'Loaded';
-  src: url('/fonts/loaded.ttf') format('truetype');
+  src:
+    url('/cryptcode-web/fonts/loaded.ttf') format('truetype'),
+    url('/fonts/loaded.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Tektur';
-  src: url('/fonts/Tektur-VariableFont_wdth,wght.ttf') format('truetype');
+  src:
+    url('/cryptcode-web/fonts/Tektur-VariableFont_wdth,wght.ttf') format('truetype'),
+    url('/fonts/Tektur-VariableFont_wdth,wght.ttf') format('truetype');
   font-weight: 400 900;
   font-style: normal;
 }
@@ -83,6 +87,17 @@
   --theme-panel-bg-soft: rgba(5, 11, 7, 0.48);
   --theme-panel-header: rgba(6, 14, 9, 0.7);
   --theme-code-bg: rgba(3, 7, 5, 0.38);
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+  background: #020403;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 .background-lights {
@@ -347,4 +362,124 @@ p {
   text-shadow:
     0 0 6px rgba(var(--theme-rgb), 0.65),
     0 0 16px rgba(var(--theme-rgb), 0.32);
+}
+
+@media (max-width: 900px) {
+  .site-header {
+    align-items: center;
+    padding: 18px 28px 8px;
+  }
+
+  .logo {
+    margin-top: 4px;
+    font-size: 22px;
+  }
+
+  .nav-menu {
+    gap: 22px;
+  }
+
+  .nav-button {
+    font-size: 14px;
+    letter-spacing: 0.07em;
+  }
+
+  .section {
+    padding: 36px 28px;
+  }
+
+  .page,
+  .section {
+    min-height: calc(100vh - 64px);
+  }
+
+  @keyframes slideInFromRight {
+    from {
+      opacity: 0;
+      transform: translateX(36px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInFromLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-36px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px 10px;
+  }
+
+  .site-header::after {
+    bottom: -42px;
+    height: 42px;
+  }
+
+  .logo {
+    margin-top: 0;
+    font-size: 21px;
+    text-align: center;
+  }
+
+  .nav-menu {
+    width: 100%;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .nav-button {
+    padding: 8px 4px;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+  }
+
+  .section {
+    padding: 28px 16px;
+    animation: none;
+  }
+
+  .page,
+  .section {
+    min-height: auto;
+  }
+
+  .light {
+    height: 88px;
+    opacity: 0.35;
+  }
+
+  .slide-left,
+  .slide-right {
+    animation-name: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .nav-menu {
+    gap: 8px;
+  }
+
+  .nav-button {
+    font-size: 11px;
+  }
+
+  .section {
+    padding: 24px 14px;
+  }
 }

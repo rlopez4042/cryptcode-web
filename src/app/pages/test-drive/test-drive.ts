@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { encryptProgram } from '../../core/cryptcode-encryption';
 import { runCryptCodeCrypt } from '../../core/cryptcode-interpreter';
+
 type EncryptionMode = 'caesar' | 'reverse' | 'addx' | 'mixed';
 
 @Component({
@@ -19,9 +20,9 @@ print total`;
 
   sourceCode = this.defaultSourceCode;
 
-  encryptedCode = 'Click Encrypt to generate a .crypt file.';
+  encryptedCode = 'Click Encrypt & Run to generate a .crypt file.';
 
-  runOutput = 'Click Run .crypt after encryption to see the interpreter output.';
+  runOutput = 'Click Encrypt & Run to see the interpreter output.';
 
   decryptedSource = '';
 
@@ -31,22 +32,22 @@ print total`;
     {
       id: 'caesar',
       label: 'Caesar',
-      description: 'Shifts letters using the hard-coded public key.',
+      description: 'shifts letters with a key',
     },
     {
       id: 'reverse',
       label: 'Reverse',
-      description: 'Reverses each line before storing it.',
+      description: 'reverses every line',
     },
     {
       id: 'addx',
       label: 'AddX',
-      description: 'Adds an x after every character.',
+      description: 'adds x after each character',
     },
     {
       id: 'mixed',
       label: 'Mixed',
-      description: 'Cycles through Caesar, Reverse, and AddX line by line.',
+      description: 'cycles through all methods',
     },
   ];
 
@@ -55,10 +56,15 @@ print total`;
       const encrypted = encryptProgram(this.sourceCode, this.getEncryptionKeys());
 
       this.encryptedCode = encrypted.cryptText;
-      this.runOutput = 'Click Run .crypt to execute the encrypted program.';
       this.decryptedSource = '';
+
+      this.runEncrypted();
     } catch (error) {
-      this.encryptedCode = this.formatError(error);
+      const message = this.formatError(error);
+
+      this.encryptedCode = message;
+      this.runOutput = message;
+      this.decryptedSource = '';
     }
   }
 
@@ -112,8 +118,8 @@ print total`;
 
   resetExample(): void {
     this.sourceCode = this.defaultSourceCode;
-    this.encryptedCode = '';
-    this.runOutput = '';
+    this.encryptedCode = 'Click Encrypt & Run to generate a .crypt file.';
+    this.runOutput = 'Click Encrypt & Run to see the interpreter output.';
     this.decryptedSource = '';
   }
 

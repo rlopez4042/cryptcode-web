@@ -196,6 +196,19 @@ $test-radius: 10px;
   }
 }
 
+.panel-title-row {
+  min-width: 0;
+}
+
+.source-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.mobile-encryption-select {
+  display: none;
+}
+
 .small-button {
   min-height: 42px;
   border: 1px solid var(--theme-border);
@@ -267,7 +280,7 @@ $test-radius: 10px;
   border-bottom: 1px solid rgba(var(--theme-rgb-bright), 0.14);
   background: var(--theme-panel-header);
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr;
   align-items: center;
   gap: 16px;
   transition:
@@ -350,16 +363,220 @@ $test-radius: 10px;
   }
 }
 
+@media (max-width: 900px) {
+  .test-drive-page {
+    width: min(100%, calc(100vw - 32px));
+    padding-top: 34px;
+    padding-bottom: 52px;
+  }
+
+  .test-drive-heading {
+    margin-bottom: 24px;
+  }
+
+  .test-drive-title {
+    font-size: clamp(38px, 9vw, 64px);
+  }
+
+  .test-drive-intro {
+    font-size: 14px;
+  }
+
+  .encryption-picker {
+    padding: 15px;
+  }
+
+  .test-drive-shell {
+    gap: 16px;
+  }
+
+  .panel-header,
+  .terminal-header {
+    min-height: auto;
+  }
+}
+
 @media (max-width: 640px) {
-  .encryption-buttons {
+  .test-drive-page {
+    width: 100%;
+    padding-top: 16px;
+    padding-bottom: 28px;
+  }
+
+  .test-drive-heading {
+    margin-bottom: 16px;
+  }
+
+.test-drive-title {
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  text-align: center;
+  gap: 7px;
+  max-width: 100%;
+  margin-bottom: 12px;
+  font-size: clamp(24px, 7.2vw, 31px);
+  line-height: 1;
+  letter-spacing: 0.045em;
+  white-space: nowrap;
+  text-align: center;
+}
+
+  .test-drive-intro {
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .encryption-picker {
+    display: none;
+  }
+
+  .mobile-encryption-select {
+    appearance: none;
+    -webkit-appearance: none;
+    display: block;
+    width: 100%;
+    min-height: 36px;
+    border: 1px solid var(--theme-border);
+    border-radius: $test-radius;
+    padding: 7px 34px 7px 10px;
+    background:
+      linear-gradient(45deg, transparent 50%, var(--theme-main-soft) 50%),
+      linear-gradient(135deg, var(--theme-main-soft) 50%, transparent 50%),
+      var(--theme-panel-bg-soft);
+    background-position:
+      calc(100% - 23px) 15px,
+      calc(100% - 17px) 15px,
+      0 0;
+    background-size:
+      6px 6px,
+      6px 6px,
+      100% 100%;
+    background-repeat: no-repeat;
+    color: var(--theme-main-soft);
+    font: inherit;
+    font-size: 11px;
+    line-height: 1.3;
+    outline: none;
+  }
+
+  .test-drive-shell {
+    gap: 10px;
+  }
+
+  .test-panel,
+  .code-editor,
+  .code-output {
+    min-height: 220px;
+  }
+
+  .output-panel,
+  .terminal-panel {
+    min-height: 170px;
+  }
+
+  .panel-header {
+    padding: 11px 12px;
+  }
+
+  .compact-source-header {
+    display: grid;
     grid-template-columns: 1fr;
+    align-items: center;
+    gap: 9px;
+  }
+
+  .panel-title-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .panel-title-row .panel-label {
+    font-size: 10px;
+    white-space: nowrap;
+  }
+
+  .panel-title-row h2 {
+    margin: 0;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .source-actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 7px;
+  }
+
+  .source-actions .small-button {
+    width: 100%;
+    min-height: 34px;
+    padding: 7px 10px;
+    font-size: 10px;
+  }
+
+  .panel-header h2,
+  .terminal-header h2 {
+    font-size: 15px;
+  }
+
+  .small-button {
+    min-height: 40px;
+    padding: 10px 14px;
+    font-size: 12px;
+  }
+
+  .code-editor,
+  .code-output,
+  .terminal-output {
+    padding: 12px;
+    font-size: 11px;
+    line-height: 1.5;
   }
 
   .terminal-header {
     grid-template-columns: 1fr;
+    min-height: auto;
+    padding: 11px 12px;
+    gap: 10px;
+  }
+
+  .terminal-header h2 {
+    display: none;
   }
 
   .terminal-dots {
     display: none;
+  }
+
+  .terminal-output {
+    min-height: 120px;
+  }
+}
+
+@media (max-width: 420px) {
+  .test-drive-title {
+    font-size: clamp(22px, 7vw, 28px);
+    gap: 6px;
+  }
+
+  .test-drive-eyebrow,
+  .panel-label,
+  .picker-label {
+    font-size: 10px;
+  }
+
+  .code-editor,
+  .code-output,
+  .terminal-output {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 360px) {
+  .test-drive-title {
+    font-size: 21px;
   }
 }
