@@ -28,6 +28,8 @@ print total`;
 
   selectedEncryptionMode: EncryptionMode = 'caesar';
 
+  hasPendingChanges = true;
+
   encryptionModes: { id: EncryptionMode; label: string; description: string }[] = [
     {
       id: 'caesar',
@@ -51,6 +53,11 @@ print total`;
     },
   ];
 
+  updateSourceCode(value: string): void {
+    this.sourceCode = value;
+    this.hasPendingChanges = true;
+  }
+
   encryptSource(): void {
     try {
       const encrypted = encryptProgram(this.sourceCode, this.getEncryptionKeys());
@@ -59,17 +66,22 @@ print total`;
       this.decryptedSource = '';
 
       this.runEncrypted();
+      this.hasPendingChanges = false;
     } catch (error) {
       const message = this.formatError(error);
 
       this.encryptedCode = message;
       this.runOutput = message;
       this.decryptedSource = '';
+      this.hasPendingChanges = false;
     }
   }
 
   selectEncryptionMode(mode: EncryptionMode): void {
-    this.selectedEncryptionMode = mode;
+    if (this.selectedEncryptionMode !== mode) {
+      this.selectedEncryptionMode = mode;
+      this.hasPendingChanges = true;
+    }
   }
 
   private getEncryptionKeys(): ('1' | '2' | '3')[] {
@@ -121,6 +133,7 @@ print total`;
     this.encryptedCode = 'Click Encrypt & Run to generate a .crypt file.';
     this.runOutput = 'Click Encrypt & Run to see the interpreter output.';
     this.decryptedSource = '';
+    this.hasPendingChanges = true;
   }
 
   private formatError(error: unknown): string {

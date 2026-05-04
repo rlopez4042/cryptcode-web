@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 type DemoExampleId = 'fizzbuzz' | 'complex' | 'simple';
 type DemoView = 'ccode' | 'crypt' | 'output';
-type EncryptionMethod = 'caesar' | 'reverse' | 'addx';
+type EncryptionMethod = 'caesar' | 'reverse' | 'addx' | 'mixed';
 
 type DemoExample = {
   id: DemoExampleId;
@@ -12,7 +12,6 @@ type DemoExample = {
   crypt: Record<EncryptionMethod, string>;
   output: string;
   fileExplanation: string;
-  encryptionExplanation: string;
   outputExplanation: string;
 };
 
@@ -31,6 +30,7 @@ export class Demo {
     { id: 'caesar', label: 'Caesar' },
     { id: 'reverse', label: 'Reverse' },
     { id: 'addx', label: 'AddX' },
+    { id: 'mixed', label: 'Mixed' },
   ];
 
   examples: DemoExample[] = [
@@ -46,6 +46,8 @@ svmmohmm 1 gb 30`,
 03 ot 1 zzubzzif`,
         addx: `Key: 3
 fxixzxzxbxuxzxzx x1x xtxox x3x0x`,
+        mixed: `Key: 1
+svmmohmm 1 gb 30`,
       },
       output: `1
 2
@@ -79,8 +81,6 @@ Fizz
 FizzBuzz`,
       fileExplanation:
         'This example uses the built-in FizzBuzz command. It keeps the source short while still showing how CryptCode can run a recognizable programming exercise.',
-      encryptionExplanation:
-        'The .crypt file starts with a Key line. Since this program has one non-empty source line, the key only needs one number.',
       outputExplanation:
         'The interpreter counts from 1 to 30, replacing multiples of 3 with Fizz, multiples of 5 with Buzz, and multiples of both with FizzBuzz.',
     },
@@ -144,6 +144,20 @@ pxrxixnxtx xmxuxlxtxixpxlxex xoxfx xtxhxrxexex
 exnxdx
 exnxdx
 pxrxixnxtx xtxoxtxaxlx`,
+        mixed: `Key: 1 2 3 1 2 3 1 2 3 1 2 3 1
+frg gbgny gb 0
+6 ot 1 morf i tnuoc
+sxextx xtxoxtxaxlx xtxox xtxoxtxaxlx x+x xix
+jura v zbq 2 vf 0
+neve tnirp
+exlxsxex
+cevag bqq
+dne
+wxhxexnx xix xmxoxdx x3x xixsx x0x
+cevag zhygvcyr bs guerr
+dne
+exnxdx
+cevag gbgny`,
       },
       output: `odd
 even
@@ -156,8 +170,6 @@ multiple of three
 21`,
       fileExplanation:
         'This example shows the larger language flow: a variable, a count loop, math, conditions, else branches, and explicit end statements.',
-      encryptionExplanation:
-        'The Key line has one number for each non-empty encrypted line. That is how the interpreter knows which decryptor to use as it rebuilds the readable program.',
       outputExplanation:
         'The program counts from 1 to 6, prints whether each number is odd or even, marks multiples of 3, keeps a running total, and prints 21 at the end.',
     },
@@ -205,6 +217,16 @@ rxexpxexaxtx x3x
 pxrxixnxtx xlxoxoxpx
 exnxdx
 pxrxixnxtx xdxoxnxex`,
+        mixed: `Key: 1 2 3 1 2 3 1 2 3
+cevag Jrypbzr gb PelcgPbqr
+01 ot erocs tes
+pxrxixnxtx xsxcxoxrxex
+frg fpber gb fpber + 5
+erocs tnirp
+rxexpxexaxtx x3x
+cevag ybbc
+dne
+pxrxixnxtx xdxoxnxex`,
       },
       output: `Welcome to CryptCode
 10
@@ -215,8 +237,6 @@ loop
 done`,
       fileExplanation:
         'This example focuses on the basics: printing text, storing a value, changing that value, repeating a block, and ending the program cleanly.',
-      encryptionExplanation:
-        'The encrypted version hides each readable source line. The Key line still keeps the file runnable by telling CryptCode how to decrypt each line.',
       outputExplanation:
         'The program prints a welcome message, shows the score before and after adding 5, repeats a word three times, and then prints done.',
     },
@@ -226,6 +246,24 @@ done`,
     return (
       this.examples.find((example) => example.id === this.selectedExampleId) ?? this.examples[0]
     );
+  }
+
+  get selectedEncryptionExplanation(): string {
+    const lineCount = this.getNonEmptyLineCount(this.selectedExample.ccode);
+
+    if (this.selectedEncryption === 'caesar') {
+      return `Caesar uses key 1 on all ${lineCount} non-empty line${lineCount === 1 ? '' : 's'}. Each line is shifted during encryption, then shifted back when the interpreter runs it.`;
+    }
+
+    if (this.selectedEncryption === 'reverse') {
+      return `Reverse uses key 2 on all ${lineCount} non-empty line${lineCount === 1 ? '' : 's'}. Each encrypted line is written backward, and the interpreter reverses it before running it.`;
+    }
+
+    if (this.selectedEncryption === 'addx') {
+      return `AddX uses key 3 on all ${lineCount} non-empty line${lineCount === 1 ? '' : 's'}. It hides the source by inserting extra x characters, then removes them during decryption.`;
+    }
+
+    return `Mixed cycles through keys 1, 2, and 3 line by line. The Key line tells CryptCode which decryptor to use for each encrypted line.`;
   }
 
   get displayedCode(): string {
@@ -252,5 +290,9 @@ done`,
   setSelectedEncryption(method: EncryptionMethod): void {
     this.selectedEncryption = method;
     this.selectedView = 'crypt';
+  }
+
+  private getNonEmptyLineCount(source: string): number {
+    return source.split('\n').filter((line) => line.trim() !== '').length;
   }
 }

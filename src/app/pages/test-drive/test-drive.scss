@@ -220,13 +220,12 @@ $test-radius: 10px;
   font-size: 13px;
   cursor: pointer;
   transition:
-    border-color 450ms ease,
-    background 450ms ease,
-    color 450ms ease,
-    box-shadow 450ms ease;
+    border-color 180ms ease,
+    background 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease;
 
-  &:hover,
-  &.primary:hover {
+  &:hover {
     border-color: var(--theme-border-strong);
     background: rgba(var(--theme-rgb), 0.14);
     color: #f8fafc;
@@ -234,9 +233,37 @@ $test-radius: 10px;
   }
 
   &.primary {
-    border-color: rgba(var(--theme-rgb-bright), 0.32);
+    border-color: var(--theme-border);
+    background: var(--theme-panel-bg-soft);
+    color: var(--theme-main-soft);
+    box-shadow: none;
+  }
+
+  &.primary.needs-run {
+    border-color: rgba(var(--theme-rgb-bright), 0.42);
     background: rgba(var(--theme-rgb), 0.12);
     color: var(--theme-main-soft);
+    box-shadow: 0 0 24px rgba(var(--theme-rgb), 0.12);
+  }
+
+  &.primary.needs-run:hover {
+    border-color: var(--theme-border-strong);
+    background: rgba(var(--theme-rgb), 0.16);
+    color: #f8fafc;
+    box-shadow: 0 0 28px rgba(var(--theme-rgb), 0.16);
+  }
+}
+
+.reset-button {
+  border-color: rgba(248, 113, 113, 0.46);
+  background: rgba(127, 29, 29, 0.08);
+  color: #f87171;
+
+  &:hover {
+    border-color: rgba(248, 113, 113, 0.72);
+    background: rgba(127, 29, 29, 0.14);
+    color: #fecaca;
+    box-shadow: 0 0 18px rgba(248, 113, 113, 0.1);
   }
 }
 
@@ -419,7 +446,6 @@ $test-radius: 10px;
     line-height: 1;
     letter-spacing: 0.045em;
     white-space: nowrap;
-    text-align: center;
   }
 
   .test-drive-intro {

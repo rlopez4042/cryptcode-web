@@ -17,7 +17,7 @@
     <nav class="nav-menu">
       <button
         type="button"
-        class="nav-button"
+        class="nav-button nav-about"
         [class.active]="activePage === 'about'"
         (click)="setActivePage('about')"
       >
@@ -26,7 +26,7 @@
 
       <button
         type="button"
-        class="nav-button"
+        class="nav-button nav-demo"
         [class.active]="activePage === 'demo'"
         (click)="setActivePage('demo')"
       >
@@ -35,7 +35,7 @@
 
       <button
         type="button"
-        class="nav-button"
+        class="nav-button nav-test-drive"
         [class.active]="activePage === 'try'"
         (click)="setActivePage('try')"
       >
@@ -45,11 +45,11 @@
 
     <a
       class="github-link"
-      href="https://github.com/rlopez4042/cryptcode-web"
+      href="https://github.com/rlopez4042/cs420-module-0"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="View CryptCode on GitHub"
-      title="View on GitHub"
+      aria-label="View CryptCode language repository on GitHub"
+      title="View language repo"
     >
       <span class="github-icon" aria-hidden="true"></span>
     </a>
@@ -76,4 +76,10 @@
   }
 </main>
 
-<footer class="site-footer"></footer>
+<footer class="site-footer">
+  <p>
+    <a href="https://github.com/rlopez4042/cryptcode-web" target="_blank" rel="noopener noreferrer">
+      View website repository
+    </a>
+  </p>
+</footer>
