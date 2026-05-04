@@ -353,6 +353,28 @@ code {
     text-align: center;
   }
 
+  .algorithm-tabs {
+    width: 100%;
+  }
+
+  .algorithm-tabs p {
+    margin-bottom: 8px;
+  }
+
+  .algorithm-tabs {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .algorithm-tab {
+    min-width: 0;
+    padding: 8px 5px;
+    font-size: 9px;
+    letter-spacing: 0.04em;
+    text-align: center;
+  }
+
   .sidebar-divider {
     margin: 1px 0;
   }
