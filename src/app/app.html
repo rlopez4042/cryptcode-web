@@ -13,34 +13,47 @@
 <header class="site-header">
   <button type="button" class="logo logo-button" (click)="setActivePage('about')">CryptCode</button>
 
-  <nav class="nav-menu">
-    <button
-      type="button"
-      class="nav-button"
-      [class.active]="activePage === 'about'"
-      (click)="setActivePage('about')"
-    >
-      About
-    </button>
+  <div class="header-actions">
+    <nav class="nav-menu">
+      <button
+        type="button"
+        class="nav-button"
+        [class.active]="activePage === 'about'"
+        (click)="setActivePage('about')"
+      >
+        About
+      </button>
 
-    <button
-      type="button"
-      class="nav-button"
-      [class.active]="activePage === 'demo'"
-      (click)="setActivePage('demo')"
-    >
-      Demo
-    </button>
+      <button
+        type="button"
+        class="nav-button"
+        [class.active]="activePage === 'demo'"
+        (click)="setActivePage('demo')"
+      >
+        Demo
+      </button>
 
-    <button
-      type="button"
-      class="nav-button"
-      [class.active]="activePage === 'try'"
-      (click)="setActivePage('try')"
+      <button
+        type="button"
+        class="nav-button"
+        [class.active]="activePage === 'try'"
+        (click)="setActivePage('try')"
+      >
+        Test Drive
+      </button>
+    </nav>
+
+    <a
+      class="github-link"
+      href="https://github.com/rlopez4042/cryptcode-web"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="View CryptCode on GitHub"
+      title="View on GitHub"
     >
-      Test Drive
-    </button>
-  </nav>
+      <span class="github-icon" aria-hidden="true"></span>
+    </a>
+  </div>
 </header>
 
 <main class="page">
@@ -63,8 +76,4 @@
   }
 </main>
 
-<footer class="site-footer">
-  <a href="https://github.com/rlopez4042/cryptcode-web" target="_blank" rel="noopener noreferrer">
-    View GitHub
-  </a>
-</footer>
+<footer class="site-footer"></footer>
